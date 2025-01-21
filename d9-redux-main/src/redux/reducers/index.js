@@ -1,3 +1,5 @@
+import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from "../actions"
+
 const initialState = {
     favourite:{
         list:[],
@@ -6,7 +8,7 @@ const initialState = {
 
 const mainReducer = (state = initialState, action) =>{
     switch(action.type){
-        case 'ADD_TO_FAVOURITE':
+        case ADD_TO_FAVOURITE:
         return{
             ...state,
             favourite:{
@@ -14,7 +16,7 @@ const mainReducer = (state = initialState, action) =>{
                 list: state.favourite.list.concat(action.payload),
             },
         }
-        case 'REMOVE_FROM_FAVOURITE':
+        case REMOVE_FROM_FAVOURITE:
         return {
             ...state,
             favourite: {
