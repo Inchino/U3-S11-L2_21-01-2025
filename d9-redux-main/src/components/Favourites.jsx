@@ -1,6 +1,7 @@
 import { Container, Row, Col, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { removeFromFavouritesAction } from '../redux/actions'
 
 const Favourites = () => {
   const list = useSelector((state) => state.favourite.list);
@@ -30,12 +31,9 @@ const Favourites = () => {
                   <Button
                 variant="danger"
                   className="mr-2"
-                  onClick={() =>
-                    dispatch({
-                      type: "REMOVE_FROM_FAVOURITE",
-                      payload: i,
-                    })
-                  }
+                  onClick={() => {
+                    dispatch(removeFromFavouritesAction(i))
+                  }}
                 >RIMUOVI DAI PREFERITI
                 </Button>
                 </ListGroupItem>

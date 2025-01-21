@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { addToFavouritesAction } from '../redux/actions';
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -45,10 +46,7 @@ const CompanySearchResults = () => {
   };
 
   const handleAddToFavourites = (job) => {
-    dispatch({
-      type: "ADD_TO_FAVOURITE",
-      payload: job,
-    });
+    dispatch(addToFavouritesAction(job));
 
     setAddedToFavourites((prevState) => ({
       ...prevState,
