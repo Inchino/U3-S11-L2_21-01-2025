@@ -24,7 +24,7 @@ const Favourites = () => {
           ) : (
             <ListGroup>
               {list.map((job, i) => (
-                <ListGroupItem key={job._id || i} className="d-flex justify-content-between align-items-center">
+                <ListGroupItem key={i} className="d-flex justify-content-between align-items-center">
                   <Link to={`/jobs/${job._id}`} className="text-decoration-none">
                     {job.title || "Job"}
                   </Link>
@@ -32,7 +32,7 @@ const Favourites = () => {
                 variant="danger"
                   className="mr-2"
                   onClick={() => {
-                    dispatch(removeFromFavouritesAction(i))
+                    dispatch(removeFromFavouritesAction(job))
                   }}
                 >RIMUOVI DAI PREFERITI
                 </Button>
